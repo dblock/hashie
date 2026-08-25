@@ -42,6 +42,7 @@ module Hashie
       autoload :PropertyTranslation, 'hashie/extensions/dash/property_translation'
       autoload :Coercion, 'hashie/extensions/dash/coercion'
       autoload :PredefinedValues, 'hashie/extensions/dash/predefined_values'
+      autoload :IgnoreRequired, 'hashie/extensions/dash/ignore_required'
     end
 
     module Mash

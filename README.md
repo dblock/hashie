@@ -43,6 +43,7 @@
   - [Mash and Rails 4 Strong Parameters](#mash-and-rails-4-strong-parameters)
   - [Coercion](#coercion-1)
   - [PredefinedValues](#predefinedvalues)
+  - [IgnoreRequired](#ignorerequired)
 - [Trash](#trash)
 - [Clash](#clash)
 - [Rash](#rash)
@@ -1016,6 +1017,34 @@ class UserHash < Hashie::Dash
   property :gender, values: %i[male female prefer_not_to_say]
   property :age, values: (0..150)
 end
+```
+
+### IgnoreRequired
+
+The `Hashie::Extensions::Dash::IgnoreRequired` mixin extends a Dash to
+silently ignore required properties on initialization and assignment,
+instead of raising an error. This is useful when building an object that
+will eventually match a Dash but is temporarily incomplete, for example an
+intermediate "builder" object.
+
+```ruby
+class Person < Hashie::Dash
+  property :first_name, required: true
+  property :last_name, required: true
+  property :email
+end
+
+class PartialPerson < Person
+  include Hashie::Extensions::Dash::IgnoreRequired
+end
+
+Person.new(first_name: 'Freddy')
+# => ArgumentError: The property 'last_name' is required for Person.
+
+person = PartialPerson.new(first_name: 'Freddy')
+person.last_name = 'Nostrils'
+person.first_name # => 'Freddy'
+person.last_name  # => 'Nostrils'
 ```
 
 ## Trash
