@@ -14,6 +14,7 @@ Any violations of this scheme are considered to be bugs.
 
 * [#592](https://github.com/hashie/hashie/pull/592): Added support for Ruby 4.0 - [@dblock](https://github.com/dblock).
 * [#595](https://github.com/hashie/hashie/pull/595): Added test coverage reporting with Coveralls - [@dblock](https://github.com/dblock).
+* [#598](https://github.com/hashie/hashie/pull/598): Report coverage from every Ruby/JRuby test matrix job to Coveralls, merged as one parallel build, so aggregate coverage reflects all supported Rubies - [@dblock](https://github.com/dblock).
 * Your contribution here.
 
 ### Changed
