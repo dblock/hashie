@@ -22,9 +22,9 @@ group :development do
 end
 
 group :test do
-  gem 'coveralls_reborn', require: false
   gem 'danger-changelog', require: false
   gem 'danger-pr-comment', require: false
   gem 'danger-toc', require: false
   gem 'simplecov'
+  gem 'simplecov-lcov', require: false
 end
